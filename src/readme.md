@@ -28,16 +28,39 @@ Crea una rama nueva que se llame 'builder'
 
 Luego con este repositorio como ejemplo, crear tu propio builder y cambia el main en esta nueva rama, para crear la pizza con el builder.
 
-## Reflexiona:
+## Respuestas examen:
 
 - ¿Cual es la función de este patrón?
 
   Se utiliza para crear objetos complejos paso a paso, permitiendo la creación de diferentes representaciones de un objeto utilizando el mismo código de construcción.
 
   La función principal del patrón Builder es separar la construcción de un objeto complejo de su representación y permitir la creación de diferentes representaciones del mismo objeto utilizando un mismo proceso de construcción.
+  
+  Un ejemplo de este patron de diseño se podria aplicar a la construccion de un tipo de coche. Tendriamos un coche base con los complementos estandar y a partir de ahi el cliente podria decidir si elije por ejemplo el modelo deportivo con todo lo que este incluye o si lo personaliza caracteristica a caracteristica combinando por ejemplo caracteristicas de un coche deportico con caracteristicas de un coche todoterreno.
 
 - ¿Como es su Diagrama de clases? Realiza en el readme el diagrama
 
-  ![image-20230322130956054](C:\Users\Bule\AppData\Roaming\Typora\typora-user-images\image-20230322130956054.png)
+![image-20230329122959376](C:\Users\Bule\AppData\Roaming\Typora\typora-user-images\image-20230329122959376.png)
 
-  
+- ¿Podríamos combinarlo con el patrón Factory? Explícalo con algo de código como lo harías.
+
+Teniendo el Builder para la generación de coches creado, añadiriamos un Factory que, en base a X parametros que reciba en el Main, llame al builder del Builder y genere el coche que buscamos:
+
+--Ejemplo de la clase Factory--
+
+    public class CocheFactory {
+    public static Coche createCoche(String tipo) {
+
+        CocheBuilder builder = new CocheBuilderImpl(); //implementa la interfaz CocheBuilder
+
+        if (tipo.equals("Deportivo")) {
+            builder.deportivo();
+        } else if (tipo.equals("Todoterrreno")) {
+            builder.todoterreno();
+        } else if (tipo.equals("Familiar")) {
+            builder.familiar();
+        }
+
+        return builder.getCoche();
+    }
+}
