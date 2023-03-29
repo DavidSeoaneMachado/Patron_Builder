@@ -40,7 +40,7 @@ Luego con este repositorio como ejemplo, crear tu propio builder y cambia el mai
 
 - ¿Como es su Diagrama de clases? Realiza en el readme el diagrama
 
-![image-20230329122959376](C:\Users\Bule\AppData\Roaming\Typora\typora-user-images\image-20230329122959376.png)
+![img.png](img.png)![image-20230329122959376](C:\Users\Bule\AppData\Roaming\Typora\typora-user-images\image-20230329122959376.png)
 
 - ¿Podríamos combinarlo con el patrón Factory? Explícalo con algo de código como lo harías.
 
